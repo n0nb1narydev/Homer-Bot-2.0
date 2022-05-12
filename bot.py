@@ -31,9 +31,11 @@ async def on_ready() -> None:
     print("-------------------")
 
 
-@bot.slash_command(description="Responds with 'World'")
-async def hello(inter):
-    await inter.response.send_message("World")
+# You can only throw if you have the 'Dough' Role
+@bot.slash_command(description="Throw a donut at a user!")
+async def  throw(inter, person: str=disnake.User):
+    await inter.response.send_message(f"{inter.author.mention} threw a donut at {person}!")
+    # Give the person the 'DOH!' role
 
 
 # execute Bot
